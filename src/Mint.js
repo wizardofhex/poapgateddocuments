@@ -120,8 +120,6 @@ export default function Mint(props) {
   //const handleSubmitdecrypt = async () => {
   async function handleSubmitdecrypt() {
     //debugger
-    console.log(resume)
-    console.dir(resume)
     var path = require('path')
     const fetch = require('node-fetch');
 
