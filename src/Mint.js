@@ -45,7 +45,7 @@ import raw from 'raw.macro'
 import fetch from 'node-fetch'
 import { pipeline } from 'stream'
 import WebFont from 'webfontloader'
-import resume from './resume.pdf'
+
 
 //import { Blob } from 'buffer'
 
