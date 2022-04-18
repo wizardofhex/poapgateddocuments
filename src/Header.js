@@ -28,7 +28,7 @@ export default function Header(props) {
         <Grid item>
         <div style={{fontFamily:'Comfortaa'}}>
         <div style={{color:"#8076fa"}}>
-            Woh's POAP Application
+            Woh's POAP Gated Documents
           </div>
         </div>  
         </Grid>
