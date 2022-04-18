@@ -115,7 +115,7 @@ export default function Mint(props) {
       }
     })
   }, [])
-  
+
   var docurl
   //const handleSubmitdecrypt = async () => {
   async function handleSubmitdecrypt() {
@@ -131,10 +131,10 @@ export default function Mint(props) {
       .then(function (myBlob) {
         file1 = new File([myBlob], "resume.zip", { type: fileresponse.type });
       })
-      .catch(rejected =>{
+      .catch(rejected => {
         console.log(rejected)
       });
-  
+
 
     const printfile = async () => {
       const a = await fileresponse;
@@ -158,7 +158,9 @@ export default function Mint(props) {
         litNodeClient: client
       });
     } catch (error) {
+      setMinting(true)
       console.log("Error: Inccorect symmetric key, encrypted content, or do not meet conditions.\n", error);
+      return
     }
     setMintingComplete(true)
 
@@ -192,65 +194,65 @@ export default function Mint(props) {
       <Header networkLoading={networkLoading} />
       <div style={{ height: 24 }} />
       <Container maxWidth='lg' className={classes.fullHeight}>
-        
-          
-            <Grid
-              container
-              //spacing={3}
-              //justify='space-between'
-              //alignItems='center'
-            >
-            
-            
-              <Grid item xs={2} sm={6}>
-              
 
-                <Grid item>
-                  
-                  <Button
-                    onClick={() => { setDoc('resume'); handleSubmitdecrypt() }}
-                    variant='primary'
-                  >
-                  <label for="button">
+
+        <Grid
+          container
+        //spacing={3}
+        //justify='space-between'
+        //alignItems='center'
+        >
+
+
+          <Grid item xs={2} sm={6}>
+
+
+            <Grid item>
+
+              <Button
+                onClick={() => { setDoc('resume'); handleSubmitdecrypt() }}
+                variant='primary'
+              >
+                <label for="button">
                   <img src="poap.svg"></img>
-                  <div style={{fontFamily:'Comfortaa'}}>
-                  <div style={{color:"#8076fa"}}>
-                  View Resume
+                  <div style={{ fontFamily: 'Comfortaa' }}>
+                    <div style={{ color: "#8076fa" }}>
+                      View Resume
+                    </div>
                   </div>
-                  </div>
-                  </label>
-                  </Button>
-                  
-                </Grid>
-
-              </Grid>
-              <Grid item>
-              
-                <Button
-                  onClick={() => { setDoc('coverletter'); handleSubmitdecrypt() }}
-                  variant='primary'
-                  
-                >
-                <label>
-                <img src="poap.svg"></img>  
-                <div style={{fontFamily:'Comfortaa'}}>
-                <div style={{color:"#8076fa"}}>
-                View Cover Letter
-              </div>
-                </div>
                 </label>
-                </Button>
-                
-              </Grid>
-              
-            
+              </Button>
+
             </Grid>
-              
+
+          </Grid>
+          <Grid item>
+
+            <Button
+              onClick={() => { setDoc('coverletter'); handleSubmitdecrypt() }}
+              variant='primary'
+
+            >
+              <label>
+                <img src="poap.svg"></img>
+                <div style={{ fontFamily: 'Comfortaa' }}>
+                  <div style={{ color: "#8076fa" }}>
+                    View Cover Letter
+                  </div>
+                </div>
+              </label>
+            </Button>
+
+          </Grid>
+
+
+        </Grid>
+
 
         {error
           ? (
             <>
-              <div style={{ height: 16 }} />
+              
               <Card>
                 <CardContent>
                   <div className={classes.error}>{error}</div>
@@ -259,19 +261,37 @@ export default function Mint(props) {
             </>
           )
           : null}
+        {minting
+          ? (
+            <>
+              <div>
+                <CardContent>
+                <div style={{ fontFamily: 'Comfortaa' }}>
+                    <div style={{ color: "#8076fa" }}>
+                      You do not have the POAP to access this document!
+                    </div>
+                  </div>
 
+
+                </CardContent>
+
+              </div>
+            </>
+
+          )
+          : null}
 
         {mintingComplete
           ? (
             <div>
-                <Typography variant='h4'>Document Decrypted!</Typography>
-                <Typography variant='h5'>
-                  You can download it <Link target='_blank' rel='noreferrer' variant='inherit' href={fileUrl}>here</Link>
-                </Typography>
-                <iframe id="viewer" height="500" width="1000"></iframe>
+              <Typography variant='h4'>Document Decrypted!</Typography>
+              <Typography variant='h5'>
+                You can download it <Link target='_blank' rel='noreferrer' variant='inherit' href={fileUrl}>here</Link>
+              </Typography>
+              <iframe id="viewer" height="500" width="1000"></iframe>
 
-                <div style={{ height: 24 }} />
-                </div>
+              <div style={{ height: 24 }} />
+            </div>
 
           )
           : null}
