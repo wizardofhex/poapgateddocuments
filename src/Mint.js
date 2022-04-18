@@ -123,7 +123,7 @@ export default function Mint(props) {
     var path = require('path')
     const fetch = require('node-fetch');
 
-    var url = `http://localhost:3000/${docurl}.zip`
+    var url = `https://poapdoc-wizardofhex.vercel.app/${docurl}.zip`
 
     var file1
     const fileresponse = fetch(url)
