@@ -7,6 +7,7 @@ import {
 import Mint from './Mint'
 import View from './View'
 import Transfer from './Transfer'
+import Encrypt from './Encrypt'
 
 const URL_MAP = {
   home: {
@@ -17,9 +18,9 @@ const URL_MAP = {
     path: '/view',
     component: props => <View {...props} />
   },
-  transfer: {
-    path: '/transfer',
-    component: props => <Transfer {...props} />
+  encrypt: {
+    path: '/encrypt',
+    component: props => <Encrypt {...props} />
   }
 }
 
