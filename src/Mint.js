@@ -72,7 +72,33 @@ export default function Mint(props) {
       }
     })
   }, [])
-
+  async function addxDaiToMetamask() {
+    if (typeof window !== 'undefined') {
+      window.ethereum.request({
+        jsonrpc: '2.0',
+        method: 'wallet_addEthereumChain',
+        params: [
+          {
+            chainId: '0x64',
+            chainName: 'Gnosis Chain',
+            rpcUrls: ['https://rpc.gnosischain.com'],
+            nativeCurrency: {
+              name: 'xDai',
+              symbol: 'xDai',
+              decimals: 18
+            },
+            blockExplorerUrls: ['https://blockscout.com/xdai/mainnet']
+          }
+        ],
+        id: 0
+      })
+      }
+      else {
+        alert("Error Swtiching to Gnosis Chain (xDao)")
+        return
+      
+    }
+  }
   var docurl
   //const handleSubmitdecrypt = async () => {
   async function handleSubmitdecrypt() {
@@ -167,9 +193,9 @@ export default function Mint(props) {
 
 
             <Grid item>
-              
+
               <Button
-                onClick={() => { setDoc('resume'); handleSubmitdecrypt() }}
+                onClick={() => { addxDaiToMetamask();setDoc('resume'); handleSubmitdecrypt() }}
                 variant='primary'
               >
                 <label for="button">
@@ -181,7 +207,7 @@ export default function Mint(props) {
                   </div>
                 </label>
               </Button>
-              
+
 
             </Grid>
 
