@@ -79,7 +79,9 @@ export default function Mint(props) {
     //debugger
     var path = require('path')
     const fetch = require('node-fetch');
-
+    var test = import("./resume.zip")
+    console.log("HERE")
+    console.log(test)
     var url = `https://poapdoc-wizardofhex.vercel.app/${docurl}.zip`
 
     var file1
