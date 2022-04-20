@@ -6,44 +6,18 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import TextField from '@material-ui/core/TextField'
 import Container from '@material-ui/core/Container'
 import IconButton from '@material-ui/core/IconButton'
-import Link from '@material-ui/core/Link'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
 import Tooltip from '@material-ui/core/Tooltip'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
 
 import CloudUploadIcon from '@material-ui/icons/CloudUpload'
 import DeleteIcon from '@material-ui/icons/Delete'
-import LockOpenIcon from '@material-ui/icons/LockOpen'
-import LockIcon from '@material-ui/icons/Lock'
-import LandscapeIcon from '@material-ui/icons/Landscape'
-import LandscapeOutlinedIcon from '@material-ui/icons/LandscapeOutlined'
-import { NFTStorage, Blob } from 'nft.storage'
 
 import LitJsSdk from 'lit-js-sdk'
 import Presentation from './components/Presentation'
-import { createTokenMetadata } from './utils/cloudFunctions'
 import { fileToDataUrl } from './utils/browser'
-import {
-  createHtmlWrapper,
-  createMediaGridHtmlString
-} from './utils/lit'
-import {
-  openseaUrl,
-  transactionUrl
-} from './utils/urls'
 import Header from './Header'
-import { saveAs } from 'file-saver'
-import { decrypt } from 'eth-sig-util'
-import path, { resolve } from 'path'
-import raw from 'raw.macro'
-import fetch from 'node-fetch'
-import { pipeline } from 'stream'
 //import { Blob } from 'buffer'
 
 

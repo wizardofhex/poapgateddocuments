@@ -4,9 +4,7 @@ import {
   Switch,
   Route
 } from 'react-router-dom'
-import Mint from './Mint'
-import View from './View'
-import Transfer from './Transfer'
+import Mint from './Decrypt'
 import Encrypt from './Encrypt'
 
 const URL_MAP = {
@@ -14,10 +12,7 @@ const URL_MAP = {
     path: '/',
     component: props => <Mint {...props} />
   },
-  view: {
-    path: '/view',
-    component: props => <View {...props} />
-  },
+
   encrypt: {
     path: '/encrypt',
     component: props => <Encrypt {...props} />
